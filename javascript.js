@@ -1,4 +1,8 @@
-var storageArray = []
+var storageArray = JSON.parse(localStorage.getItem('storeMe')) || [];
+
+$(document).ready(function() {
+  //loop through storageArray, for each thing in it
+});
 
 $('#save').on('click', function() {
 
@@ -8,7 +12,7 @@ $('#save').on('click', function() {
 
   //store it
   storeIdea();
-
+  pushToStorage()
 
   addIdea();
   clearInputs();
@@ -21,15 +25,22 @@ function storeIdea(){
   var newIdea = new Idea(id,title,body);
   storageArray.push(newIdea);
 
-
-
   //stringify
 
   //setItem
 }
 
+function pushToStorage() {
+  localStorage.setItem("storeMe", JSON.stringify(storageArray));
+}
+
+function pullFromStorage() {
+  JSON.parse(localStorage.getItem('storeMe'));
+
+}
+
 function Idea(id,title,body) {
-  this.id = id
+  this.id = id;
   this.title = title;
   this.body = body;
   this.quality = 'swill';
