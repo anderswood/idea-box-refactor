@@ -20,7 +20,7 @@ h1 span {
   color: #6D6E71;
 }
 
-input, .save {
+input, #save {
   font-family: 'Open Sans', sans-serif;
   display: block;
   margin: 15px auto;
@@ -30,7 +30,7 @@ input {
   width: 90%;
 }
 
-.save {
+#save {
   width: 91%;
   background-color: #00A790;
   color: #FFF;

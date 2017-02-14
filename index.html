@@ -8,24 +8,23 @@
     <meta charset="utf-8">
     <title>Idea Box</title>
   </head>
+
   <body>
+
     <header role="main">
       <h1>idea<span>box</span></h1>
-      <input class="title" placeholder="Title" aria-label="enter title here" aria-required="true">
-      <input class="body" placeholder="Body" aria-label="enter idea text here" aria-required="true">
-      <button class="save" aria-label="save button" aria-required="true">save</button>
+      <form>
+        <input id="title" placeholder="Title" aria-label="enter title here" aria-required="true">
+        <input id="body" placeholder="Body" aria-label="enter idea text here" aria-required="true">
+      </form>
+      <button id="save" aria-label="save button" aria-required="true">save</button>
     </header>
+
     <section role="contentinfo">
       <input class="" placeholder="Search">
-        <article class="template">
-          <h2>Example Idea 1</h2>
-          <img src="" alt="delete button">
-          <p>Tirasduh sdfuhdfuh sdfuh sdfih sdfoij sdfoidoisdj sdfoi 42 dspj</p>
-          <img src="" alt="upvote button">
-          <img src="" alt="downvote button">
-          <h3>quality: <span id="quality"></span></h3>
-        </article>
+      <div class="ideas"></div>
     </section>
+
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/jquery-3.1.1.min.js"><\/script>')</script>
