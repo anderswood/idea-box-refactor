@@ -1,0 +1,45 @@
+
+body {
+  /*font-family: "Open sans", sans-serif;*/
+}
+
+
+header {
+  background-color: #E5F3F2;
+  padding: 10px 0;
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 0px;
+  color: #00A79D;
+}
+
+h1 span {
+  color: #6D6E71;
+}
+
+input, .save {
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  margin: 15px auto;
+}
+
+input {
+  width: 90%;
+}
+
+.save {
+  width: 91%;
+  background-color: #00A790;
+  color: #FFF;
+  border: none;
+
+}
+
+
+/*@media screen and (min-width: 700px) {
+
+
+}*/
