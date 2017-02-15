@@ -49,9 +49,8 @@ function printIdea(title,body) {
     <p>${body}</p>
     <img class="icon upvote"src="icons/upvote.svg" alt="upvote button">
     <img src="" alt="downvote button">
-    <h3><b>quality:</b> <span id="quality">${quality}</span></h3>
+    <h3><b>quality:</b> <span id="quality"></span></h3>
     </article>`);
-
 };
 
 function clearInputs() {
