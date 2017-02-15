@@ -1,6 +1,9 @@
+html, body {
+  width: 100%;
+}
 
 body {
-  /*font-family: "Open sans", sans-serif;*/
+  font-family: "Open sans", sans-serif;
 }
 
 
@@ -12,22 +15,27 @@ header {
 
 h1 {
   text-align: center;
-  margin: 0px;
+  margin: 10px 0 20px 0;
   color: #00A79D;
+  font-size: 40px;
 }
 
 h1 span {
   color: #6D6E71;
 }
 
+forn {
+  width: 90%;
+}
+
 input, #save {
-  font-family: 'Open Sans', sans-serif;
   display: block;
   margin: 15px auto;
 }
 
 input {
   width: 90%;
+  height: 30px;
 }
 
 #save {
@@ -35,11 +43,64 @@ input {
   background-color: #00A790;
   color: #FFF;
   border: none;
+  height: 35px;
+}
 
+article {
+  width: 90%;
+  min-height: 200px;
+  margin: auto;
+  border-bottom: 2px solid #d1d3d4;
+  position: relative;
+  padding-top: 10px;
 }
 
 
-/*@media screen and (min-width: 700px) {
+h2, p {
+  margin: 0;
+}
+
+h2 {
+  color: #6d6e71;
+  display: inline;
+  font-size: 22px;
+  left: 0;
+  
+}
+
+p {
+  color: #939598;
+}
+
+h3 {
+  color: #6d6e71;
+  font-size: 16px;
+}
+
+/*icons*/
+
+.icon {
+  width: 20px;
+  margin-left: 70%;
+  position: absolute;
+}
+
+#delete-btn {
+ right: 0;
+}
 
 
-}*/
+
+
+@media screen and (min-width: 700px) {
+
+form, .ideas {
+    width: 60%;
+    margin: auto;
+  }
+
+#save, .search {
+  width: 54%;
+}
+
+}
