@@ -84,8 +84,7 @@ function updateObjectText(flaggedId, updatedTitle, updatedBody) {
   })
 }
 
-//Delete Button: Exclude deleted idea from storageArray, push updated
-//array to storage, remove deleted idea from DOM
+//Delete Button
 $('.ideas').on('click', '#delete-btn', function() {
   flaggedId = $(this).siblings('#unique-id').text()*1;
   storageArray = storageArray.filter(function(idea) {
