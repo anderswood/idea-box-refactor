@@ -178,7 +178,7 @@ h3 {
   background: url('icons/delete-hover.svg');
 }
 
-#unique-id {
+.unique-id {
   margin: 0;
   display: none;
 }
