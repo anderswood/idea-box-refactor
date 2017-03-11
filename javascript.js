@@ -1,8 +1,6 @@
 
 var storageArray = JSON.parse(localStorage.getItem('storeMe')) || [];
 
-var quality;
-
 $(document).ready(function() {
   printStorageArray()
 });
@@ -51,8 +49,8 @@ function printIdea(i) {
       <div class="icon" id="delete-btn" alt="delete button"></div>
       <p contenteditable="true">${body}</p>
       <h3 class="unique-id">${id}</h3>
-      <div class="icon upvote" alt="upvote button"></div>
-      <div class="icon downvote" alt="downvote button"></div>
+      <div class="upvote" alt="upvote button"></div>
+      <div class="downvote" alt="downvote button"></div>
       <h3><b>quality:</b> <span id="quality">${quality}</span></h3>
     </article>`);
 };
@@ -92,52 +90,39 @@ $('.ideas').on('click', '#delete-btn', function() {
 });
 
 //Upvote and Downvote Buttons
-$('.ideas').on('click', '.upvote', function() {
-  quality = $(this).siblings().children('#quality').text();
-  console.log(this);
-  updateTextUpQuality();
+$('.ideas').on('click', '.upvote, .downvote', function() {
+  var quality = $(this).siblings().children('#quality').text();
   var flaggedId = $(this).siblings('.unique-id').text()*1;
-  updateObjectQuality(flaggedId);
+  var voteClass = $(this).attr('class');
+  var selector = this;
+  quality = updateTextQuality(quality, voteClass);
+  updateObjectQuality(flaggedId, quality);
   pushToStorage();
-  $(this).parent().siblings().remove();
-  $(this).parent().remove('article');
+  deleteArticles(selector);
   printStorageArray();
 })
 
-$('.ideas').on('click', '.downvote', function() {
-  quality = $(this).siblings().children('#quality').text();
-  updateTextDownQuality();
-  var flaggedId = $(this).siblings('.unique-id').text()*1;
-  updateObjectQuality(flaggedId);
-  pushToStorage();
-  $(this).parent().siblings().remove();
-  $(this).parent().remove('article');
-  printStorageArray();
-})
-
-function updateTextUpQuality() {
-  if (quality == 'swill') {
-    quality = 'plausible';
-  } else if (quality == 'plausible') {
-    quality = 'genius';
+function updateTextQuality(quality, voteClass) {
+  if (voteClass === 'upvote') {
+    (quality === 'swill') ? quality = 'plausible' : quality = 'genius';
+  } else if (voteClass === 'downvote') {
+    (quality === 'genius') ? quality = 'plausible' : quality = 'swill';
   }
+  return quality
 }
 
-function updateTextDownQuality() {
-  if (quality == 'genius') {
-    quality = 'plausible';
-  } else if (quality == 'plausible') {
-    quality = 'swill';
-  }
-}
-
-function updateObjectQuality(flaggedId){
+function updateObjectQuality(flaggedId, quality){
   storageArray.forEach(function(idea,i) {
     if (idea.id == flaggedId) {
       idea.quality = quality;
       storageArray[i] = idea;
     }
   })
+}
+
+function deleteArticles(selector) {
+  $(selector).parent().siblings().remove();
+  $(selector).parent().remove('article');
 }
 
 $('.search').on('keyup', function() {
